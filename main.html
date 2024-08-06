@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'Thetix</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    
+    <header>
+        <div class="top-bar">
+            <div class="left-content">
+                <div class="search-icon" onclick="openSearchModal()">
+                    <img src="search-icon.png" alt="Search">
+                </div>
+            </div>
+            <div class="horizontal-line"></div>
+            <div class="right-content">
+                <div class="contact-number">
+                    <p>(877) 566-1108</p>
+                </div>
+                <div class="lang-menu">
+                    <img src="globe-icon.png" alt="Language" onclick="toggleLanguageMenu()">
+                    <div class="lang-menu-options">
+                        <div onclick="changeLanguage('en')">English</div>
+                        <div onclick="changeLanguage('de')">Deutsch</div>
+                        <div onclick="changeLanguage('zh')">中文</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="logo2.png" alt="S'Thetix">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#machines">Machines</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="post-header-image-container">
+        <img class="post-header-image" src="bg.jpg" alt="Header Image">
+        
+        <div class="coming-soon">COMING SOON</div> 
+
+        <div class="text-on-image">
+            <h1>WELCOME TO THE FUTURE OF AESTHETECH</h1>
+            <p>DISCOVER A NEW DIMENSION OF LEASING</p>
+            <div class="ai-text">
+                <span class="animated-gradient">AI</span>.Aesthetic Intelligence
+                <h2 class="additional-text">India's #1 Aesthetech company providing 360° holistic Aesthetics Solutions to elevate the support the plastic surgeons, Dermatologists, Cosmetologists, and Salons Med. Spa owners by making world-class cutting-edge technology aesthetics equipment more Affordable.</h2>
+                <button class="boton-elegante">Explore</button>
+            </div>
+        </div>
+        
+        <div class="social-media">
+            <p>Let's Get Social</p>
+            <a href="https://www.facebook.com/snylloestetica"><img src="facebook.png" alt=" "></a>
+            <a href="https://www.instagram.com/snylloestetica/?igsh=bmRyMTF3anM0OHpn"><img src="instagram.png" alt=" "></a>
+            <a href="https://x.com/Snylloestetica"><img src="twitter.png" alt=" "></a>
+            <a href="https://www.linkedin.com/company/snyllo-%C3%A9stetica?trk=public_post_feed-actor-name&originalSubdomain=in"><img src="linkedin.png" alt=""></a>
+        </div>
+       <div class="countdown">
+    <div class="time-container">
+        <div class="circle" id="days-circle">
+            <div class="progress" id="days-progress"></div>
+            <div class="time" id="days">12</div>
+        </div>
+        <div class="label">DAYS</div>
+    </div>
+    <div class="time-container">
+        <div class="circle" id="hours-circle">
+            <div class="progress" id="hours-progress"></div>
+            <div class="time" id="hours">08</div>
+        </div>
+        <div class="label">HOURS</div>
+    </div>
+    <div class="time-container">
+        <div class="circle" id="minutes-circle">
+            <div class="progress" id="minutes-progress"></div>
+            <div class="time" id="minutes">37</div>
+        </div>
+        <div class="label">MINUTES</div>
+    </div>
+    <div class="time-container">
+        <div class="circle" id="seconds-circle">
+            <div class="progress" id="seconds-progress"></div>
+            <div class="time" id="seconds">24</div>
+        </div>
+        <div class="label">SECONDS</div>
+    </div>
+</div>
+
+        
+    </section>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>At S'Thetix, we provide cutting-edge aesthetics technology to revolutionize the beauty and medical industries.</p>
+    </section>
+    <section id="features" class="features">
+        <h2>Our Features</h2>
+        <p>Explore our wide range of advanced treatments, state-of-the-art machines, and innovative technologies.</p>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2024 S'Thetix. All rights reserved.</p>
+    </footer>
+    
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSearchModal()">&times;</span>
+            <input type="text" placeholder="Search Site" class="search-input">
+            <p>We're happy to answer any questions you may have, feel free to call us at (877) 566-1108</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
