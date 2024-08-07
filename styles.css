@@ -95,6 +95,23 @@ header {
     z-index: 1; /* Ensure the line is above other content */
     animation: slide-in 2s ease-out forwards;
 }
+
+/* For mobile devices */
+@media (max-width: 767px) {
+    .horizontal-line {
+        top: 5%; /* Adjust top position for mobile */
+        border-top: 1px solid #686363; /* Line color and thickness */
+    }
+}
+
+/* For tablets and desktops */
+@media (min-width: 768px) {
+    .horizontal-line {
+        top: 10%; /* Adjust top position for tablets and desktops */
+        border-top: 2px solid #686363; /* Slightly thicker line for larger screens */
+    }
+}
+
 @keyframes slide-in {
     from {
         width: 0; /* Start with width 0 */
@@ -103,6 +120,7 @@ header {
         width: 100%; /* Expand to full width */
     }
 }
+
 .main-nav {
     background-color: #000000;
     display: flex;
