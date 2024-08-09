@@ -449,46 +449,7 @@ header {
         background-position: 0% 0%;
     }
 }
-.additional-text {
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin: 10px 0;
-    color: #555;
-    max-width: 600px;
-    text-align: justify;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 
-/* For screens that are 600px wide or less */
-@media (max-width: 600px) {
-    .additional-text {
-        font-size: 14px; /* Adjust font size for small screens */
-        letter-spacing: 1px; /* Adjust letter spacing for small screens */
-        margin: 8px 0; /* Adjust margin for small screens */
-        max-width: 100%; /* Ensure it uses the full width of the container */
-        padding: 0 10px; /* Add padding to prevent text from touching the edges */
-    }
-}
-
-/* For screens that are between 601px and 900px wide */
-@media (min-width: 601px) and (max-width: 900px) {
-    .additional-text {
-        font-size: 16px; /* Adjust font size for medium screens */
-        letter-spacing: 1.5px; /* Adjust letter spacing for medium screens */
-        margin: 9px 0; /* Adjust margin for medium screens */
-        max-width: 90%; /* Adjust width for medium screens */
-    }
-}
-
-/* For screens that are 901px wide or more */
-@media (min-width: 901px) {
-    .additional-text {
-        font-size: 18px; /* Default font size */
-        letter-spacing: 2px; /* Default letter spacing */
-        margin: 10px 0; /* Default margin */
-        max-width: 600px; /* Default max-width */
-    }
-}
 
 /* From Uiverse.io by iZOXVL */ 
 .boton-elegante {
