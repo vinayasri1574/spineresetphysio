@@ -419,7 +419,7 @@ header {
 }
 
 .animated-gradient {
-    font-size: 48px;
+    font-size: 72px;
     background: linear-gradient(90deg, #ff0081, #ff8c00, #00d084);
     background-size: 200% 200%;
     color: transparent;
