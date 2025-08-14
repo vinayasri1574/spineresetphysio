@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spine Reset Chiropractic</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    :root {
+        --primary: #24667A;
+        --secondary: #57C6D4;
+        --white: #FFFFFF;
+        --light-gray: #F8FAFB;
+        --shadow: rgba(0, 0, 0, 0.05);
+    }
+
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: var(--light-gray);
+        color: var(--primary);
+    }
+
+    /* ===== Top Contact Bar ===== */
+    .top-bar {
+        background-color: var(--primary);
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 80px;
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+    .top-left, .top-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .top-bar a {
+        color: var(--white);
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+    .top-bar a:hover {
+        opacity: 0.8;
+    }
+    @media (max-width: 900px) {
+    nav {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    header {
+        padding: 14px 20px;
+    }
+    .top-bar {
+        display: none; /* Hide top bar in mobile */
+    }
+}
+
+
+    /* ===== Main Header ===== */
+    header {
+        background-color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 80px;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0 2px 10px var(--shadow);
+    }
+    .logo img {
+        height: 85px;
+        transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+        transform: scale(1.05);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+    nav a {
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 500;
+        font-size: 16px;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: var(--secondary);
+    }
+    nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: var(--secondary);
+        transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    .book-btn {
+        background-color: var(--secondary);
+        color: var(--white);
+        border: none;
+        padding: 12px 28px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 25px;
+        box-shadow: 0 4px 10px var(--shadow);
+        transition: all 0.3s ease;
+    }
+    .book-btn:hover {
+        background-color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    /* ===== Mobile Styles ===== */
+    .menu-toggle {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--primary);
+    }
+
+    /* ===== Mobile Drawer Menu ===== */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100%;
+        background-color: var(--primary);
+        color: var(--white);
+        box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+        transition: left 0.35s ease;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .mobile-menu.open {
+        left: 0;
+    }
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .mobile-menu-header img {
+        height: 45px;
+    }
+    .close-btn {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .mobile-links {
+        flex-grow: 1;
+        padding: 15px;
+    }
+    .mobile-links a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background-color: rgba(255,255,255,0.05);
+        margin-bottom: 8px;
+        text-decoration: none;
+        color: var(--white);
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .mobile-links a:hover {
+        background-color: var(--secondary);
+        transform: translateX(5px);
+    }
+
+    .mobile-contact {
+        padding: 15px;
+        font-size: 14px;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .mobile-contact div {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .mobile-social {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+    }
+    .mobile-social a {
+        color: var(--white);
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    /* ===== Responsive Breakpoint ===== */
+    @media (max-width: 900px) {
+        nav {
+            display: none;
+        }
+        .menu-toggle {
+            display: block;
+        }
+        header {
+            padding: 16px 24px;
+        }
+        .top-bar {
+            padding: 8px 20px;
+        }
+    }
+
+    /* hero section */
+/* =========================
+   PREMIUM GRADIENT BACKGROUND
+========================= */
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #4967bf, #e7ece9);
+    position: relative;
+    gap: 40px;
+    overflow: hidden;
+
+    /* Scroll animation base */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+    animation: floatBG 10s infinite linear;
+}
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+@keyframes floatBG {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =========================
+   TEXT ANIMATION
+========================= */
+.left h5, .left h1, .left p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+}
+.left h5 { animation-delay: 0.2s; }
+.left h1 { animation-delay: 0.4s; }
+.left p  { animation-delay: 0.6s; }
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+.left {
+    flex: 1;
+    min-width: 300px;
+}
+.left h5 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #4a5048;
+    margin-bottom: 15px;
+    font-weight: bolder;
+    position: relative;
+}
+.left h5::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #4a5e4a;
+    margin-top: 6px;
+    border-radius: 2px;
+}
+.left h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #0e170c;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.left p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 420px;
+}
+
+/* =========================
+   PREMIUM BUTTON
+========================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #4a5e4a, #2f3d2f);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.8s;
+}
+.btn::before {
+    content: "📞";
+    margin-right: 8px;
+}
+.btn:hover {
+    background: linear-gradient(135deg, #3a4e3a, #243024);
+}
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+.btn:active::after {
+    width: 300%;
+    height: 300%;
+}
+
+/* =========================
+   CENTER IMAGE
+========================= */
+.center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+.center img {
+    width: 360px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 50% 50% 0 0;
+    transition: transform 0.6s ease, box-shadow 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 1s;
+}
+.center img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   RIGHT STATS
+========================= */
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    min-width: 250px;
+}
+.stat {
+    background: rgba(255,255,255,0.85);
+    border-radius: 50px;
+    padding: 25px 35px;
+    border: 1px solid #ddd;
+    text-align: center;
+    min-width: 220px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeUp 0.8s forwards;
+}
+.stat:nth-child(1) { animation-delay: 1.2s; }
+.stat:nth-child(2) { animation-delay: 1.4s; }
+.stat:nth-child(3) { animation-delay: 1.6s; }
+.stat h2 {
+    font-size: 36px;
+    margin: 0;
+    color: #4a5e4a;
+    font-weight: 600;
+}
+.stat p {
+    font-size: 13px;
+    margin: 5px 0 0;
+    color: #555;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.stat:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width: 992px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+    .left, .center, .right {
+        align-items: center;
+        flex: unset;
+    }
+    .left h1 {
+        font-size: 42px;
+    }
+    .center img {
+        width: 300px;
+        height: 400px;
+    }
+}
+@media(max-width: 600px) {
+    .section {
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    .left h1 {
+        font-size: 32px;
+    }
+    .left p {
+        font-size: 15px;
+    }
+    .btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    .center img {
+        width: 240px;
+        height: 320px;
+    }
+    .stat {
+        padding: 18px 25px;
+        min-width: 180px;
+    }
+    .stat h2 {
+        font-size: 28px;
+    }
+}
+
+/* =========================
+   ABOUT SECTION PREMIUM STYLE
+========================= */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  gap: 40px;
+  background: linear-gradient(135deg, #f5f9fa, #e7ece9);
+  position: relative;
+  overflow: hidden;
+
+  /* Scroll animation base */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.about-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   TEXT STYLING + ANIMATION
+========================= */
+.about-content {
+  flex: 1;
+}
+.about-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #4a5048;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.2s;
+}
+.about-title {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 15px 0;
+  color: #0e170c;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.4s;
+}
+.underline {
+  width: 60px;
+  height: 4px;
+  background-color: #4FC1D1;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.6s;
+}
+.about-text {
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 500px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+  animation-delay: 0.8s;
+}
+
+/* =========================
+   VISION & MISSION
+========================= */
+.vision-mission {
+  display: flex;
+  gap: 50px;
+}
+.vision-mission h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #4a5e4a;
+}
+.vision-mission p {
+  color: #555;
+  max-width: 250px;
+  line-height: 1.5;
+}
+.vision-mission > div {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+.vision-mission > div:nth-child(1) {
+  animation-delay: 1s;
+}
+.vision-mission > div:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+/* =========================
+   IMAGE SIDE
+========================= */
+.about-images {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+.about-images img {
+  width: 100%;
+  max-width: 180px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 100px;
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s forwards;
+}
+.about-images img:nth-child(1) {
+  animation-delay: 1.4s;
+}
+.about-images img:nth-child(2) {
+  animation-delay: 1.6s;
+}
+.about-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   FADE-UP KEYFRAMES
+========================= */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media(max-width: 992px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 30px;
+  }
+  .vision-mission {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  .about-images {
+    justify-content: center;
+  }
+}
+@media(max-width: 600px) {
+  .about-section {
+    padding: 40px 20px;
+  }
+  .about-title {
+    font-size: 32px;
+  }
+  .about-text {
+    font-size: 15px;
+  }
+  .about-images {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .about-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50px;
+  }
+}
+
+
+/* 3rd section */
+
+.services-section {
+  background-color: #F5F9FA;
+  text-align: center;
+  padding: 0;
+}
+
+.services-header {
+  position: relative;
+  background: url('services-bg.jpg') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 104, 160, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.services-header-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 20px;
+}
+
+.services-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.services-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background-color: #4FC1D1;
+  margin: 0 auto;
+}
+
+.services-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: -60px;
+  padding: 0 20px 60px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background-color: white;
+  border-radius: 40px;
+  padding: 30px 20px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  z-index: 1;
+}
+
+.service-icon {
+  background-color: #1E6B80;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.service-card button {
+  background-color: #4FC1D1;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.service-card button:hover {
+  background-color: #3A9FAF;
+}
+/* 4 th section */
+/* =========================
+   PREMIUM STEPS SECTION
+========================= */
+.steps-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 50px;
+    background: linear-gradient(135deg, #1E6B80, #4FC1D1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Moving background pattern */
+.steps-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: movePattern 20s linear infinite;
+    z-index: 0;
+}
+@keyframes movePattern {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 50px); }
+}
+
+/* Left content */
+.steps-left {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+.steps-left h5 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #aeefff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.steps-left h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #fff, #aeefff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* animation: textGlow 3s ease-in-out infinite alternate; */
+}
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    100% { text-shadow: 0 0 25px rgba(174,239,255,0.8); }
+}
+.steps-left .underline {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4FC1D1, #1E6B80);
+    margin-top: 20px;
+    border-radius: 2px;
+    animation: expand 1s ease-out;
+}
+
+/* Right content */
+.steps-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.step-card {
+    text-align: center;
+    background: rgba(255,255,255,0.95);
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.step-card .icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4FC1D1, #1E6B80);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.step-card:hover .icon {
+    background: linear-gradient(135deg, #1E6B80, #4FC1D1);
+    transform: rotate(10deg) scale(1.05);
+}
+
+.step-card .icon img {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%) brightness(200%);
+}
+
+.step-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1E6B80;
+}
+
+.step-card p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    0% { opacity: 0; transform: translateX(30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes expand {
+    0% { width: 0; }
+    100% { width: 60px; }
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 992px) {
+    .steps-section {
+        flex-direction: column;
+        padding: 40px 5%;
+        gap: 40px;
+    }
+    .steps-left h2 {
+        font-size: 36px;
+    }
+    .steps-right {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .steps-left h2 {
+        font-size: 28px;
+    }
+    .step-card {
+        padding: 20px 15px;
+    }
+    .step-card .icon {
+        width: 70px;
+        height: 70px;
+    }
+    .step-card .icon img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* 5th section */
+:root {
+    --primary: #24667A;
+    --secondary: #57C6D4;
+    --text-dark: #222;
+    --text-light: #555;
+    --bg-light: #F5F8F8;
+}
+
+.why-choose-us {
+    background: var(--bg-light);
+    padding: 80px 10%;
+}
+
+.why-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.why-image {
+    flex: 1;
+}
+.why-image img {
+    width: 100%;
+    border-radius: 30px 0 0 30px;
+    object-fit: cover;
+}
+
+.why-content {
+    flex: 1;
+}
+
+.why-content h5 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.why-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.why-content .underline {
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.why-content p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Progress Bars */
+.progress-group {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.progress-item span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    position: relative;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 6px;
+    background: var(--primary);
+    border-radius: 3px;
+    width: 0;
+    position: relative;
+    transition: width 1.5s ease-in-out;
+}
+
+.progress-percent {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 50%;
+    min-width: 36px;
+    text-align: center;
+}
+/* Base state (before visible) */
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+/* Active state (when visible) */
+.slide-up.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* =========================
+   OFFER SECTION - PREMIUM
+========================= */
+.offer-section {
+  background: linear-gradient(135deg, #1E6B80, #001113); /* Premium gradient */
+  padding: 60px 5%;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HEADER */
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.offer-header h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.offer-nav {
+  display: flex;
+  gap: 10px;
+}
+.offer-nav button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.offer-nav button:hover {
+  background: white;
+  color: #1E6B80;
+  transform: scale(1.1);
+}
+
+/* CAROUSEL */
+.offer-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.offer-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.offer-card {
+  background: white;
+  color: black;
+  flex: 0 0 calc(25% - 20px);
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  min-width: 250px;
+}
+.offer-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* CARD HEADER TAG */
+.offer-title {
+  background: linear-gradient(135deg, #4FC1D1, #1E6B80);
+  color: white;
+  padding: 12px 20px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* CARD TEXT */
+.offer-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* ICON */
+.offer-icon {
+  background: #eef5f7;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.offer-icon img {
+  width: 35px;
+  height: 35px;
+  filter: invert(20%) sepia(50%) saturate(300%) hue-rotate(180deg);
+  transition: filter 0.3s ease;
+}
+.offer-card:hover .offer-icon {
+  background: linear-gradient(135deg, #4FC1D1, #1E6B80);
+  transform: scale(1.1);
+}
+.offer-card:hover .offer-icon img {
+  filter: invert(100%) brightness(200%);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .offer-card {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .offer-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .offer-nav {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .offer-card {
+    flex: 0 0 100%;
+  }
+}
+
+/* meet my expert */
+
+
+
+    .team-section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .team-section h3 {
+        font-size: 14px;
+        color: #3fa37a;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .team-section h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #2b2b2b;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .team-section h1::after {
+        content: '';
+        width: 60px;
+        height: 3px;
+        background: #3fa37a;
+        display: block;
+        margin: 12px auto 0;
+        border-radius: 2px;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .team-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .team-card img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .team-card:hover img {
+        transform: scale(1.05);
+        filter: brightness(0.7);
+    }
+
+    .team-overlay {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: rgba(63, 163, 122, 0.9);
+        color: white;
+        text-align: left;
+        transition: bottom 0.4s ease;
+    }
+
+    .team-card:hover .team-overlay {
+        bottom: 0;
+    }
+
+    .team-name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .team-exp {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+        .team-card img {
+            height: 260px;
+        }
+    }
+
+/* footer */
+/* =========================
+   PREMIUM FOOTER
+========================= */
+.footer {
+  position: relative;
+  padding: 60px 10% 30px;
+  font-family: Arial, sans-serif;
+  color: #d8d8d8;
+  background: linear-gradient(135deg, #1E6B80, #000607);
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: movePattern 20s linear infinite;
+  z-index: 0;
+}
+@keyframes movePattern {
+  from { transform: translate(0, 0); }
+  to { transform: translate(40px, 40px); }
+}
+
+/* Content Layer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+/* Columns */
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease forwards;
+}
+.footer-col:nth-child(1) { animation-delay: 0.2s; }
+.footer-col:nth-child(2) { animation-delay: 0.4s; }
+.footer-col:nth-child(3) { animation-delay: 0.6s; }
+.footer-col:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Headings */
+.footer-col h3 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #fff, #aeefff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-underline {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #4FC1D1, #1E6B80);
+  margin-bottom: 20px;
+}
+
+/* Links & Text */
+.footer-col p, 
+.footer-col a {
+  color: #d8d8d8;
+  font-size: 14px;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.footer-col a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+/* Button */
+.footer-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4FC1D1, #1E6B80);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.footer-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(79,193,209,0.4);
+}
+
+/* Social Icons */
+.footer-social a {
+  display: inline-block;
+  color: white;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.footer-social a:hover {
+  transform: scale(1.3) rotate(5deg);
+  color: #4FC1D1;
+}
+
+/* Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo */
+.footer-logo {
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+.footer-tagline {
+  color: #d8d8d8;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+/* Tablet layout (2 columns) */
+@media (max-width: 992px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  .footer-col {
+    flex: 1 1 calc(50% - 30px);
+    min-width: 240px;
+    text-align: center;
+  }
+  .footer-social {
+    margin-top: 15px;
+  }
+}
+
+/* Mobile layout (1 column) */
+/* Tablet layout (2 columns) */
+@media (max-width: 992px) {
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .footer-col {
+    flex: 1 1 calc(50% - 30px);
+    min-width: 240px;
+  }
+
+  /* Ensure logo scales properly */
+  .footer-logo img {
+    max-width: 160px;
+    height: auto;
+  }
+
+  /* Keep Book Appointment button aligned */
+  .footer-btn {
+    margin: 10px auto 0;
+    display: inline-block;
+  }
+
+  .footer-social {
+    margin-top: 15px;
+  }
+}
+
+/* Mobile layout (1 column) */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: unset;
+    animation-delay: 0 !important;
+  }
+
+  /* Logo smaller on mobile */
+  .footer-logo img {
+    max-width: 140px;
+    height: auto;
+  }
+
+  .footer-btn {
+    margin: 10px auto;
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .footer-social a {
+    margin: 0;
+  }
+}
+
+
+
+/* testimonial section */
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #7a8f82;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .dot.active {
+    background-color: white;
+  }
+/* Chat Button */
+
+.chat-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000; /* Ensures it stays on top */
+    text-decoration: none;
+}
+
+.chat-button button {
+    background-color: #03A9F4;
+    color: white;
+    font-size: 18px;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-button button i {
+    font-size: 28px; /* Bigger WhatsApp Icon */
+}
+
+.chat-button button:hover {
+    background-color: #11ae2e;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .chat-button {
+        bottom: 80px; /* Lower position for mobile */
+        right: 15px; /* Slightly inward */
+    }
+
+    .chat-button button {
+        font-size: 14px; /* Smaller font for mobile */
+        padding: 10px 1px; /* Adjusted padding */
+        border-radius: 25px;
+        gap: 8px;
+    }
+
+    .chat-button button i {
+        font-size: 22px; /* Slightly smaller WhatsApp icon */
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<!-- ===== Top Contact Bar ===== -->
+<div class="top-bar">
+    <div class="top-left">
+        <span><i class="fa-regular fa-envelope"></i> info@spinereset.com</span>
+        <span><i class="fa-solid fa-phone"></i> +91 5698 0036 420</span>
+    </div>
+    <div class="top-right">
+        <span><i class="fa-regular fa-clock"></i> Mon to Fri 9:00am to 6:00pm</span>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+
+<!-- ===== Main Header ===== -->
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Spine Reset Chiropractic">
+    </div>
+
+    <nav>
+        <a href="#" class="dropdown">Home</a>
+        <a href="#">About</a>
+        <a href="#">Service</a>
+        <a href="#" class="dropdown">Page</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <button class="book-btn">Book Appointment</button>
+    </nav>
+
+    <span class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></span>
+</header>
+
+<!-- ===== Mobile Menu Drawer ===== -->
+<div class="mobile-menu" id="mobileMenu">
+    <div>
+        <div class="mobile-menu-header">
+            <img src="logo.jpg" alt="Logo">
+            <span class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+
+        <div class="mobile-links">
+            <a href="#">Home <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">About <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">Services <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">Pages <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">Shop <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">Blog <i class="fa-solid fa-angle-right"></i></a>
+            <a href="#">Contact <i class="fa-solid fa-angle-right"></i></a>
+        </div>
+    </div>
+
+    <div class="mobile-contact">
+        <div><i class="fa-regular fa-envelope"></i> info@spinereset.com</div>
+        <div><i class="fa-solid fa-phone"></i> +91 5698 0036 420</div>
+        <div class="mobile-social">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Main Section -->
+<section class="section">
+    <!-- Left Content -->
+    <div class="left">
+        <h5>Welcome To Spine Reset Chiropractic & Physio Wellness </h5>
+        <h1>Destination <br> For Relief <br> & Wellness</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper.</p>
+        <a href="https://wa.me/918106158188?text=Hello%20I%20would%20like%20to%20book%20an%20appointment"
+           class="btn" target="_blank">MAKE APPOINTMENT</a>
+    </div>
+
+    <!-- Center Image -->
+    <div class="center">
+        <img src="pic1.jpg" alt="Doctor"> <!-- Replace with your doctor image -->
+    </div>
+
+    <!-- Right Stats -->
+    <div class="right">
+        <div class="stat">
+            <h2>48+</h2>
+            <p>PROFESSIONAL STAFF</p>
+        </div>
+        <div class="stat">
+            <h2>24</h2>
+            <p>YEARS OF EXPERIENCE</p>
+        </div>
+        <div class="stat">
+            <h2>3,578</h2>
+            <p>SATISFIED CLIENTS</p>
+        </div>
+    </div>
+</section>
+
+<!-- 2nd section -->
+<section class="about-section">
+    <div class="about-content">
+      <span class="about-subtitle">ABOUT US</span>
+      <h1 class="about-title">We Are The Best<br>Physiotherpahy in Town</h1>
+      <div class="underline"></div>
+      <p class="about-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      </p>
+      <div class="vision-mission">
+        <div>
+          <h3>Vision</h3>
+          <p>
+            Lorem ipsum dolor sit amet, anamka consectetur adipiscing elit ala. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus l.eo
+          </p>
+        </div>
+        <div>
+          <h3>Mission</h3>
+          <p>
+            Lorem ipsum dolor sit amet, anamka consectetur adipiscing elit ala. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="about-images">
+      <img src="pic2.jpg" alt="Spine Treatment">
+      <img src="pic3.jpg" alt="Therapy Session">
+      <img src="pic4.jpg" alt="Knee Care">
+    </div>
+  </section>
+
+
+<!-- 3rd section -->
+<section class="services-section">
+  <div class="services-header">
+    <div class="overlay"></div>
+    <div class="services-header-content">
+      <span class="services-subtitle">OUR SERVICES</span>
+      <h2 class="services-title">We Provide The Best Services</h2>
+      <div class="underline"></div>
+    </div>
+  </div>
+
+  <div class="services-cards">
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="icon1.png" alt="Injury Rehabilitation">
+      </div>
+      <h3>Injury Rehabilitation</h3>
+      <p>Personalized rehabilitation programs aimed at restoring function and reducing pain following sports injuries.</p>
+      <button>LEARN MORE</button>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="icon2.png" alt="Neurological Rehabilitation">
+      </div>
+      <h3>Neurological Rehabilitation</h3>
+      <p>Rehabilitation interventions targeting individuals with neurological conditions such as stroke.</p>
+      <button>LEARN MORE</button>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="icon2.png" alt="Neurological Rehabilitation">
+      </div>
+      <h3>Neurological Rehabilitation</h3>
+      <p>Rehabilitation interventions targeting individuals with neurological conditions such as stroke.</p>
+      <button>LEARN MORE</button>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="icon2.png" alt="Neurological Rehabilitation">
+      </div>
+      <h3>Neurological Rehabilitation</h3>
+      <p>Rehabilitation interventions targeting individuals with neurological conditions such as stroke.</p>
+      <button>LEARN MORE</button>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <img src="icon3.png" alt="Orthopedic Rehabilitation">
+      </div>
+      <h3>Orthopedic Rehabilitation</h3>
+      <p>Targeted interventions to rehabilitate orthopedic injuries and surgeries, restoring mobility services.</p>
+      <button>LEARN MORE</button>
+    </div>
+  </div>
+</section>
+
+<!-- offfer section -->
+ <section class="offer-section">
+  <div class="offer-header">
+    <h2>What We’re Offering</h2>
+    <div class="offer-nav">
+      <button class="offer-prev">&#8592;</button>
+      <button class="offer-next">&#8594;</button>
+    </div>
+  </div>
+  <div class="offer-carousel">
+    <div class="offer-card">
+      <div class="offer-title">Cardiorespiratory</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon1.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Joint Mobilization</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon2.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Heat & Cold Therapy</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon3.svg" alt="icon">
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-title">Chiropractic Care</div>
+      <p>We are a healthcare therapy provider focused on the diagnosis and treatment</p>
+      <div class="offer-icon">
+        <img src="icon4.svg" alt="icon">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 5 th section -->
+ <section class="why-choose-us">
+    <div class="why-container">
+        <!-- Left Image -->
+        <div class="why-image">
+            <img src="your-image.jpg" alt="Smiling Person">
+        </div>
+
+        <!-- Right Content -->
+        <div class="why-content">
+            <h5>WHY CHOOSE US</h5>
+            <h2>Individually Tailored Treatment:<br>Your Path to Wellness</h2>
+            <div class="underline"></div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            </p>
+
+            <div class="progress-group">
+                <div class="progress-item">
+                    <span>Professional Team</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="87">
+                            <span class="progress-percent">87%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <span>Comprehensive Services</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="90">
+                            <span class="progress-percent">90%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <span>Affordable Package</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="88">
+                            <span class="progress-percent">88%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-item">
+                    <span>Satisfied Client</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-percentage="95">
+                            <span class="progress-percent">95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="steps-section">
+  <div class="steps-left">
+      <h5>HOW TO GET OUR SERVICES</h5>
+      <h2>Easy Step to Get <br> Physiotherapy</h2>
+      <div class="underline"></div>
+  </div>
+
+  <div class="steps-right">
+      <div class="step-card">
+          <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="Make Appointment">
+          </div>
+          <h3>1. Make Appointment</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,</p>
+      </div>
+      <div class="step-card">
+          <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2922/2922565.png" alt="Meet Our Therapist">
+          </div>
+          <h3>2. Meet Our Therapist</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,</p>
+      </div>
+      <div class="step-card">
+          <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Get A Consultation">
+          </div>
+          <h3>3. Get A Consultation</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,</p>
+      </div>
+      
+      <div class="step-card">
+          <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/2920/2920216.png" alt="Enjoy Your Therapy">
+          </div>
+          <h3>4. Enjoy Your Therapy</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,</p>
+      </div>
+  </div>
+</section>
+
+<!-- testimonial section -->
+ <section style="background-color:#0f1f4d; color:white; padding:60px 0;">
+  <div style="display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:auto; flex-wrap:wrap; gap:40px;">
+    
+    <!-- Left Column -->
+    <div style="flex:1; min-width:280px;">
+      <h4 style="font-size:14px; letter-spacing:2px; color:#9bb89f; margin-bottom:15px;">TESTIMONIAL</h4>
+      <h1 style="font-size:48px; line-height:1.2; margin:0;">What Our<br>Customer Say<br>About Us</h1>
+    </div>
+
+    <!-- Right Column -->
+    <div style="flex:1.2; min-width:320px; position:relative;">
+      <div id="testimonial-card" style="background-color:#3d5246; padding:30px; border-radius:20px; min-height:250px; transition:0.3s;">
+        <p id="testimonial-text" style="font-size:16px; line-height:1.5; margin-bottom:25px;">
+          As someone who was skeptical about chiropractic care, I was pleasantly surprised by the results I experienced. Not only did they alleviate my pain, but they also provided me with valuable insights into maintaining a healthy lifestyle.
+        </p>
+        <div style="display:flex; align-items:center;">
+          <img id="testimonial-img" src="https://via.placeholder.com/50" alt="Profile" style="width:50px; height:50px; border-radius:50%; margin-right:15px;">
+          <div>
+            <h3 id="testimonial-name" style="margin:0; font-size:18px;">Drew Feig</h3>
+            <p id="testimonial-role" style="margin:0; font-size:14px; color:#c8d6c1;">Patient</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Dots -->
+      <div style="text-align:center; margin-top:20px;">
+        <span class="dot active" onclick="showTestimonial(0)"></span>
+        <span class="dot" onclick="showTestimonial(1)"></span>
+        <span class="dot" onclick="showTestimonial(2)"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+    <h3>OUR TEAM</h3>
+    <h1>Meet Our Expert Doctors</h1>
+    <div class="team-grid">
+
+        <div class="team-card">
+            <img src="https://via.placeholder.com/400x340" alt="Doctor">
+            <div class="team-overlay">
+                <div class="team-name">Dr. James Anderson</div>
+                <div class="team-exp">15+ Years of Experience</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <img src="https://via.placeholder.com/400x340" alt="Doctor">
+            <div class="team-overlay">
+                <div class="team-name">Sarah Mitchell</div>
+                <div class="team-exp">12+ Years of Experience</div>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <img src="https://via.placeholder.com/400x340" alt="Doctor">
+            <div class="team-overlay">
+                <div class="team-name">Daniel Roberts</div>
+                <div class="team-exp">10+ Years of Experience</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- footer -->
+ <footer class="footer">
+  <div class="footer-container">
+    <!-- About -->
+    <!-- About / Logo Section -->
+<div class="footer-col">
+  <img src="logo.jpg" alt="Your Company Logo" class="footer-logo">
+
+  <a href="#" class="footer-btn">Book Appointment</a>
+  <div class="footer-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+
+
+    <!-- Services -->
+    <div class="footer-col">
+      <h3>Our Services</h3>
+      <div class="footer-underline"></div>
+      <ul>
+        <li><a href="#">Physiotherapy</a></li>
+        <li><a href="#">Massage Therapy</a></li>
+        <li><a href="#">Chiropractic Therapy</a></li>
+        <li><a href="#">Clinical Pilates</a></li>
+        <li><a href="#">Laser Therapy</a></li>
+      </ul>
+    </div>
+
+    <!-- Opening Time -->
+    <div class="footer-col">
+      <h3>Opening Time</h3>
+      <div class="footer-underline"></div>
+      <p>Mon 9:00am – 6:00pm</p>
+      <p>Tue 9:00am – 6:00pm</p>
+      <p>Wed 9:00am – 6:00pm</p>
+      <p>Thu 9:00am – 6:00pm</p>
+      <p>Fri 9:00am – 6:00pm</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col">
+      <h3>Get In Touch</h3>
+      <div class="footer-underline"></div>
+      <p>85 Ketch Harbour Road Bensal PA 19020</p>
+      <p><i class="fas fa-paper-plane"></i> <a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
+      <p><i class="fas fa-phone"></i> <a href="tel:+9156980036420">+91 5698 0036 420</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© Copyright 2025 by Sifoxen WordPress Theme</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/918106158188?text=Hi%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" class="chat-button">
+    <button><i class="fab fa-whatsapp"></i></button>
+</a>
+
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".progress-fill");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const percentage = entry.target.getAttribute("data-percentage");
+                entry.target.style.width = percentage + "%";
+            }
+        });
+    }, { threshold: 0.4 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+});
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".progress-fill");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const percentage = entry.target.getAttribute("data-percentage");
+                entry.target.style.width = percentage + "%";
+            }
+        });
+    }, { threshold: 0.4 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll("section"); // Target all sections
+
+    // Add slide-up class initially
+    elements.forEach(el => el.classList.add("slide-up"));
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                obs.unobserve(entry.target); // Animate only once
+            }
+        });
+    }, { threshold: 0.2 }); // Trigger when 20% visible
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
+<script>
+const carousel = document.querySelector(".offer-carousel");
+const prevBtn = document.querySelector(".offer-prev");
+const nextBtn = document.querySelector(".offer-next");
+
+let scrollStep = 1; // pixels per frame
+let scrollInterval;
+
+// Auto scroll function
+function startAutoScroll() {
+  scrollInterval = setInterval(() => {
+    carousel.scrollLeft += scrollStep;
+
+    // If reached the end, scroll back to start
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+      carousel.scrollLeft = 0;
+    }
+  }, 15); // speed control (lower = faster)
+}
+
+// Stop auto scroll when user hovers
+carousel.addEventListener("mouseenter", () => clearInterval(scrollInterval));
+carousel.addEventListener("mouseleave", startAutoScroll);
+
+// Buttons click
+nextBtn.addEventListener("click", () => {
+  carousel.scrollBy({ left: 300, behavior: "smooth" });
+});
+prevBtn.addEventListener("click", () => {
+  carousel.scrollBy({ left: -300, behavior: "smooth" });
+});
+
+// Start scrolling when page loads
+startAutoScroll();
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const footerCols = document.querySelectorAll(".footer-col");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.1 });
+
+  footerCols.forEach(col => {
+    col.style.opacity = "0";
+    col.style.transform = "translateY(30px)";
+    observer.observe(col);
+  });
+});
+
+</script>
+<script>
+  const testimonials = [
+    {
+      text: "As someone who was skeptical about chiropractic care, I was pleasantly surprised by the results I experienced. Not only did they alleviate my pain, but they also provided me with valuable insights into maintaining a healthy lifestyle.",
+      img: "https://via.placeholder.com/50",
+      name: "Drew Feig",
+      role: "Patient"
+    },
+    {
+      text: "The staff here is amazing! They took the time to listen to my concerns and created a treatment plan that worked wonders for my back pain.",
+      img: "https://via.placeholder.com/50/ff0000",
+      name: "Sarah Lee",
+      role: "Patient"
+    },
+    {
+      text: "I've been to many clinics, but this one truly stands out. Professional, caring, and results-driven. Highly recommend!",
+      img: "https://via.placeholder.com/50/00ff00",
+      name: "James Carter",
+      role: "Patient"
+    }
+  ];
+
+  function showTestimonial(index) {
+    document.getElementById("testimonial-text").textContent = testimonials[index].text;
+    document.getElementById("testimonial-img").src = testimonials[index].img;
+    document.getElementById("testimonial-name").textContent = testimonials[index].name;
+    document.getElementById("testimonial-role").textContent = testimonials[index].role;
+    
+    document.querySelectorAll(".dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+</script>
+
+
+</body>
+</html>
